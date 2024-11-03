@@ -19,7 +19,9 @@ namespace CSharp_Fastfood.Tests
 
             
             // Act and Assert
-            Assert.Throws<InvalidOperationException>(() => sut.Completed());
+            Exception ex = Assert.Throws<InvalidOperationException>(() => sut.Completed());
+
+            Assert.Equal("order already completed", ex.Message);
         }
     }
 }
