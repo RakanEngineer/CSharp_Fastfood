@@ -1,4 +1,5 @@
 ﻿
+
 namespace CSharp_Fastfood.Terminal.Models
 {
     public class KitchenBot
@@ -15,6 +16,19 @@ namespace CSharp_Fastfood.Terminal.Models
         public void PlaceOrder(Order order)
         {
             orderQueue.Enqueue(order);
+        }
+
+        public void ProcessOrders()
+        {
+            while (orderQueue.Any())
+            {
+                Order order = orderQueue.Dequeue();
+                // Cook dish...
+
+                order.Completed();
+                // Deliver dish...
+
+            }
         }
     }
 }
