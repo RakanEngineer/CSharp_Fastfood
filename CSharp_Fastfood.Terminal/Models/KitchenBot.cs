@@ -3,11 +3,18 @@ namespace CSharp_Fastfood.Terminal.Models
 {
     public class KitchenBot
     {
-        public int PendingOrders { get; }
+        private static Queue<Order> orderQueue  = new Queue<Order>();
+        public int PendingOrders
+        {
+            get
+            {
+                return orderQueue.Count();
+            }
+        }
 
         public void PlaceOrder(Order order)
         {
-            throw new NotImplementedException();
+            orderQueue.Enqueue(order);
         }
     }
 }
