@@ -13,7 +13,10 @@ namespace CSharp_Fastfood.Terminal.Models
 
         public void Completed()
         {
-            CompletedAt = DateTime.Now;
+            if (CompletedAt != null) 
+                throw new InvalidOperationException("order already completed");
+
+                CompletedAt = DateTime.Now;
         }
     }
 }
